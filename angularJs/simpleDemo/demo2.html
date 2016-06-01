@@ -36,11 +36,12 @@ C 只限类名使用
 M 只限注释使用
 restrict 默认值为 EA, 即可以通过元素名和属性名来调用指令。
  -->
+<!--  
 <div ng-app="myApp" ng-controller="myCtrl">
 <runoob-directive></runoob-directive>
 <div runoob-directive></div>
 <div class="runoob-directive"></div>
-<!-- 指令: runoob-directive -->
+<!-- 指令: runoob-directive -(-注释不然冲突)>
 </div>
 <script>
 var app = angular.module("myApp", []);
@@ -52,6 +53,133 @@ app.directive("runoobDirective", function() {
         template : "<h1>自定义指令!</h1>"
     };
 });
-</script>
+</script>-->
+
+<!-- demo3 ng-model -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	名字:<input ng-model="name">
+	<h1>你输入了:{{name}}</h1>
+</div>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope) {
+		$scope.name = 'Jone cxc'
+	})
+</script> -->
+
+<!-- demo4 ng-model validate -->
+<!-- ng-model 指令根据表单域的状态添加/移除以下类：
+ng-empty
+ng-not-empty
+ng-touched
+ng-untouched
+ng-valid
+ng-invalid
+ng-dirty
+ng-pending
+ng-pristine -->
+<!-- <style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+<form ng-app="" name="myForm">
+	Email:
+	<input type="email" name="myAddress" ng-model='text' required>
+	<span ng-show="myForm.myAddress.$error.email">不是一个合法地址</span>
+	<h1>状态</h1>
+	{{myForm.myAddress.$valid}}
+	{{myForm.myAddress.$dirty}}
+	{{myForm.myAddress.$touched}}
+</form> -->
+
+
+<!-- demo5 scope -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<input ng-model="carname">
+	<h1>{{carname}}</h1>
+</div>
+<script>
+	var app = angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope){
+		$scope.carname = "Volvo";
+	})
+</script> -->
+
+<!-- demo6 rootscope -->
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+	<h1>{{lastname}}家族成员:</h1>
+	<ul>
+		<li ng-repeat="x in names">{{x}} {{lastname}}</li>
+	</ul>
+</div>
+<script >
+	var app =angular.module('myApp',[]);
+	app.controller('myCtrl',function($scope,$rootScope){
+		$scope.names = ['aa','bb','ddd'];
+		 $rootScope.lastname = "Refsnes";
+	})
+</script> -->
+
+<!-- demo7 ng-controller -->
+<!-- <div ng-app="myApp" ng-controller="personCtrl">
+	名: <input type="text" ng-model="firstName"><br>
+	姓: <input type="text" ng-model="lastName"><br>
+	<br>
+	姓名: {{fullName()}}
+</div>
+<script >
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "John";
+		$scope.lastName = "snow";
+		$scope.fullName = function() {
+			return $scope.firstName + " " + $scope.lastName;
+		}
+	})
+</script> -->
+<!-- 外部文件中的控制器
+在大型的应用程序中，通常是把控制器存储在外部文件中。
+只需要把 <script> 标签中的代码复制到名为 personController.js 的外部文件中即可： -->
+
+<!-- demo8 过滤器 -->
+<!-- 
+currency	格式化数字为货币格式。
+filter	从数组项中选择一个子集。
+lowercase	格式化字符串为小写。
+orderBy	根据某个表达式排列数组。
+uppercase	格式化字符串为大写。
+ -->
+<div ng-app="myApp" ng-controller="personCtrl">
+<p>姓名为 {{ lastName | uppercase }}</p>
+<p>姓名为 {{ firstName | lowercase }}</p>
+<p>姓名为 {{ (quantity * price) | currency }}</p>
+<ul>
+  <li ng-repeat="x in names | orderBy:'country'">
+    {{ x.name + ', ' + x.country }}
+  </li>
+</ul>
+<p><input type="text" ng-model="test"></p>
+<ul>
+  <li ng-repeat="x in names | filter:test | orderBy:'country'">
+    {{ (x.name | uppercase) + ', ' + x.country }}
+  </li>
+</ul>
+</div>
+<script >
+	var app = angular.module('myApp',[]);
+	app.controller('personCtrl',function($scope){
+		$scope.firstName = "TOM";
+		$scope.lastName = "snow";
+		$scope.quantity = 10;
+		$scope.price = 2;
+		$scope.names = [{name:1,country:3},{name:2,country:2},{name:3,country:1}];
+		$scope.fullName = function() {
+			return $scope.firstName + " " + $scope.lastName;
+		}
+	})
+</script> 
+
+
 </body>
 </html>
