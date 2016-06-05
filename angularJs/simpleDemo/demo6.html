@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="../node_modules/angular/angular.min.js"></script>
+</head>
+<body>
+
+<!-- demo1 validate-->
+<!--
+HTML 表单属性 novalidate 用于禁用浏览器默认的验证。
+
+AngularJS ng-model 指令用于绑定输入元素到模型中。
+模型对象有两个属性： user 和 email。
+我们使用了 ng-show指令， color:red 在邮件是 $dirty 或 $invalid 才显示。
+
+
+属性	描述
+$dirty	表单有填写记录
+$valid	字段内容合法的
+$invalid	字段内容是非法的
+$pristine	表单没有填写记录
+  -->
+  <h2>Validation Example</h2>
+  <form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+  	<p>
+  		用户名:<br>
+  		<input type="text" name="user" ng-model="user" required>
+  		<span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+  		<span ng-show="myForm.user.$error.required">用户名是必须的</span>
+  		</span>
+  	</p>
+
+  	 <p>
+  		邮箱:<br>
+  		<input type="email" name="email" ng-model="email" required>
+  		<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+  		<span ng-show="myForm.email.$error.required">邮箱是必须的</span>
+  		<span ng-show="myForm.email.$error.email">邮箱格式错误</span>
+  		</span>
+  	</p>
+  	
+  	<p>
+  		<input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || 
+  		myForm.email.$dirty && myForm.email.$invalid" name="">
+  	</p>
+  </form>
+  <script type="text/javascript">
+  	var app = angular.module('myApp',[]);
+  	app.controller('validateCtrl',function($scope){
+  		$scope.user = "chen xinglian"
+  		$scope.email = "chenxinglian@cxl.com"
+  	})
+  </script>
+
+
+<!-- demo2 api -->
+<!-- 
+AngularJS 全局 API 用于执行常见任务的 JavaScript 函数集合，如：
+比较对象
+迭代对象
+转换对象
+全局 API 函数使用 angular 对象进行访问。
+以下列出了一些通用的 API 函数：
+API	描述
+angular.lowercase()	转换字符串为小写
+angular.uppercase()	转换字符串为大写
+angular.isString()	判断给定的对象是否为字符串，如果是返回 true。
+angular.isNumber()	判断给定的对象是否为数字，如果是返回 true。
+ -->
+
+
+
+</body>
+</html>

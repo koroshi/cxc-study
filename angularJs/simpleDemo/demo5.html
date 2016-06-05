@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="../node_modules/angular/angular.min.js"></script>
+</head>
+<body>
+
+<!-- demo1 forms-->
+<!--
+ novalidate 属性是在 HTML5 中新增的。禁用了使用浏览器的默认验证。
+ novalidate 属性在应用中不是必须的，但是你需要在 AngularJS 表单中使用，用于重写标准的 HTML5 验证。
+ -->
+<div ng-app="myApp" ng-controller="formCtrl">
+	<form novalidate>
+		First name:<br>
+		<input type="text" ng-model="user.firstName">
+		Lase name:<br>
+		<input type="text" ng-model="user.lastName">
+		<br><br>
+		<button ng-click="reset()">RESET</button>
+	</form>
+	<p>form = {{user}}</p>
+	<p>master = {{master}}</p>
+</div>
+<script type="text/javascript">
+	var app = angular.module('myApp',[]);
+	app.controller('formCtrl',function($scope){
+		$scope.master = {firstName:'xinglian',lastName:"chen"}
+		$scope.reset = function(){
+			$scope.user = angular.copy($scope.master);
+		};
+		$scope.reset();
+	})
+</script>
+
+
+
+
+
+</body>
+</html>
