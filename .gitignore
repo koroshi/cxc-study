@@ -1,3 +1,4 @@
 /.idea
 /angularJs/node_modules
-
+/restful-jwt-demo/node_modules
+node_modules
