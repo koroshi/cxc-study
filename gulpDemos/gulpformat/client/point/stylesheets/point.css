@@ -1,0 +1,61 @@
+/*.navbar-inverse .navbar-brand {*/
+    /*color: #fff;*/
+    /*font-size: 22px;*/
+/*}*/
+/*.fixed-width {*/
+    /*width: 1280px;*/
+/*}*/
+/*.input-group-addon-format {*/
+    /*border: 0;*/
+    /*background-color: transparent;*/
+/*}*/
+/*body {*/
+    /*padding-top: 50px;*/
+    /*padding-bottom: 0;*/
+    /*font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;*/
+/*}*/
+/*.fix-top-2 {*/
+    /*left: 0;*/
+    /*position: fixed;*/
+    /*right: 0;*/
+    /*z-index: 1029;*/
+/*}*/
+.gap{
+    margin-right: 10px;
+}
+
+.fix-top-2{
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1029;
+}
+
+.fixed-width {
+    width: 1280px;
+}
+
+#newPoint,#deletePoint{
+    width: 75px;
+    height: 37px;
+    font-size: 16px;
+}
+
+#pathList{
+    height: 37px;
+    font-size: 16px;
+}
+
+#pointsPage{
+    margin-top: 70px;
+}
+
+.circlePic{
+    margin-bottom: 5px;
+    height: 14px;
+}
+
+.thead-color{
+    background-color: #428BCA;
+    color: #eeeeee;
+}
