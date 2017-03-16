@@ -8,7 +8,7 @@ import Footer from '../components/Footer'
 class App extends Component {
   render() {
     // Injected by connect() call:
-    const { dispatch, visibleTodos, visibilityFilter } = this.props
+    const { dispatch, visibleTodos, visibilityFilter,allTodos } = this.props
     return (
       <div>
         <AddTodo
@@ -17,8 +17,11 @@ class App extends Component {
           } />
         <TodoList
           todos={visibleTodos}
-          onTodoClick={index =>
-            dispatch(completeTodo(index))
+          alltodos={allTodos}
+          filter={visibilityFilter}
+          onTodoClick={index =>{
+                dispatch(completeTodo(index))
+            }
           } />
         <Footer
           filter={visibilityFilter}
@@ -61,6 +64,7 @@ function selectTodos(todos, filter='SHOW_ALL') {
 function select(state) {
   return {
     visibleTodos: selectTodos(state.todos, state.visibilityFilter),
+    allTodos:selectTodos(state.todos, "SHOW_ALL"),
     visibilityFilter: state.visibilityFilter
   }
 }

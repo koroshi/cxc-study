@@ -9,7 +9,7 @@ export default class Todo extends Component {
           textDecoration: this.props.completed ? 'line-through' : 'none',
           cursor: this.props.completed ? 'default' : 'pointer'
         }}>
-        {this.props.text}
+        {this.props.text+' keys:'+Object.keys(this.props).toString()}
       </li>
     )
   }

@@ -84,3 +84,20 @@ tudolist运行成功翻看一下代码
 6. app组件内，放入其他具体业务的组件此例子里都是显示组件
 
 明天继续看各个组件功能AddTodo、TodoList、Footer以及containers/app.js
+
+### 20170316
+
+-----
+
+体会，
+
+react-redux 在外层把store放入app，然后connect决定store的state内容
+
+此例子的函数操作只是积于all的情况，在active的时候因为可见todos的index可能在all里面已经完成而导致没法完成todo
+
+传入app一个alltodos，在todolist里渲染todo的时候加上一个switch函数把filter传进来，根据filter类型渲染不同的部分，这样map的永远是全部todos保证了index的一致性
+
+并且在add里加入了为空的时候不加
+
+明天看下一张了可以[开始](http://cn.redux.js.org/docs/basics/ExampleTodoList.html)
+
