@@ -9,18 +9,24 @@ const toBeSortArray = [
 	{id:7,sortNumber:1,parentId:3},
 	{id:8,sortNumber:2,parentId:3},
 	{id:9,sortNumber:3,parentId:3},
-	{id:10,sortNumber:4,parentId:3}
+	{id:10,sortNumber:4,parentId:3},
+	{id:11,sortNumber:1,parentId:10}
 ];
 
 let sortArray = function(toBeSortArrayArg,parentId){
 	let tmpLevelArrays = _.filter(toBeSortArrayArg,{parentId:parentId})
-	_.each(tmpLevelArrays,function(oneArray,index){
-		tmpLevelArrays.splice(index+1,0,sortArray(toBeSortArrayArg,oneArray.id))
-	})
-	return tmpLevelArrays;
+		let result = _.cloneDeep(tmpLevelArrays)
+		_.each(tmpLevelArrays,function(oneArray,index){
+			let sortResult = sortArray(toBeSortArrayArg,oneArray.id);
+			if(sortResult && sortResult.length>0) result.splice(index+1,0,sortResult)
+		})
+		return result;
 }
 
-var sortedArray= sortArray(toBeSortArray,null)
-var flattenedArray = _.flattenDeep(sortedArray);
+let sortedArray= sortArray(toBeSortArray,null)
+console.log('sortedArray==========================================')
+console.log(JSON.stringify(sortedArray,null,2))
+console.log(JSON.stringify(sortedArray))
+let flattenedArray = _.flattenDeep(sortedArray);
 console.log(flattenedArray)
 
