@@ -1,15 +1,12 @@
-var express = require('express');
-var router = express.Router();
-
 var LocalLogger = require('../utils/LocalLogger')
-var log = LocalLogger.getLogger("Routerindex");
+var log = LocalLogger.getLogger("RouterIndex");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  log.debug('route index')
-  log.info('route index')
-  console.log('route index')
-  res.render('index', { title: 'Express' });
-});
+let usersRouter = require("./users");
+module.exports = (app) => {
+  app.get('/', (req, res) => {
+  	log.debug('hello index!');
+    res.json({ message: 'hello index!'});
+  });
 
-module.exports = router;
+  app.use('/api', usersRouter); // 在所有users路由前加/api
+};
