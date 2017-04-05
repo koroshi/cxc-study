@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- css for demo6 -->
+	<style type="text/css">
+		.fade-enter-active, .fade-leave-active {
+		  transition: opacity .5s
+		}
+		.fade-enter, .fade-leave-active {
+		  opacity: 0
+		}
+	</style>
+</head>
+
+<body>
+
+<!-- demo1 -->
+<!-- <div id="app">
+  {{ message }}
+</div> -->
+
+<!-- demo2 -->
+<!-- <div id="app-2">
+  <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span> -->
+<!-- </div> -->
+
+<!-- demo3 -->
+<!-- 	<div id="app-3">
+	  <p v-if="seen">现在你看到我了</p>
+	</div> -->
+
+
+	<!-- demo4 -->
+<!-- 	<div id="app-4">
+	  <ol>
+	    <li v-for="todo in todos">
+	      {{ todo.text }}
+	    </li>
+	  </ol>
+	</div> -->
+
+
+<!-- 	<div id="app-5">
+	  <p>{{ message }}</p>
+	  <button v-on:click="reverseMessage">逆转消息</button>
+	</div> -->
+
+<!-- demo6 -->
+	<div id="demo">
+	  <button v-on:click="show = !show">
+	    Toggle
+	  </button>
+	  <transition name="fade">
+	    <p v-if="show">hello</p>
+	  </transition>
+	</div>
+
+<script type="text/javascript">
+	// code for demo1
+	// var app = new Vue({
+	// 	  el: '#app',
+	// 	  data: {
+	// 	    message: 'Hello Vue!'
+	// 	  }
+	// 	})
+	// 	
+	
+	// code for demo2	
+	// var app2 = new Vue({
+	//   el: '#app-2',
+	//   data: {
+	//     message: '页面加载于 ' + new Date()
+	//   }
+	// })
+	// 
+	 
+	 	// code for demo3	
+	//  var app3 = new Vue({
+	// 	  el: '#app-3',
+	// 	  data: {
+	// 	    seen: true
+	// 	  }
+	// })	
+
+ 	// code for demo4	
+	// var app4 = new Vue({
+	//   el: '#app-4',
+	//   data: {
+	//     todos: [
+	//       { text: '学习 JavaScript' },
+	//       { text: '学习 Vue' },
+	//       { text: '整个牛项目' }
+	//     ]
+	//   }
+	// })
+
+ 	// code for demo5	
+	// var app5 = new Vue({
+	//   el: '#app-5',
+	//   data: {
+	//     message: 'Hello Vue.js!'
+	//   },
+	//   methods: {
+	//     reverseMessage: function () {
+	//       this.message = this.message.split('').reverse().join('')
+	//     }
+	//   }
+	// })
+	// 
+	
+	// code for demo6
+	new Vue({
+	  el: '#demo',
+	  data: {
+	    show: true
+	  }
+	})
+</script>
+</body>
+</html>
