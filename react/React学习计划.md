@@ -101,3 +101,17 @@ react-redux 在外层把store放入app，然后connect决定store的state内容
 
 明天看下一张了可以[开始](http://cn.redux.js.org/docs/basics/ExampleTodoList.html)
 
+### 20170326
+
+----
+
+redux-thunk中间件函数，发起请求？
+
+redux-logger 日志？
+
+todo下面两个
+
+router里面包router外面包provider（todo-list）【可以优化一下】
+
+完整的reddit api代码看一下
+
