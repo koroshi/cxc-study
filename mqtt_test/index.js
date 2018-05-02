@@ -9,7 +9,7 @@ let mqttConfig = {
 }
 var client = mqtt.connect(mqttConfig)
 client.on('connect', function () {
-    client.subscribe('test/testAC')
+    client.subscribe('test/testAC1')
     client.publish('test/testAC', 'Hello mqtt1')
 })
 
