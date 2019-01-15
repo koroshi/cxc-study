@@ -1,0 +1,10 @@
+db.getCollection('show_logistics_detail').aggregate([ 
+{"$lookup": {"from": "show_logistics_address", "localField": "_id", "foreignField": "detail_id", "as": "address"}},
+{"$lookup": {"from": "show_logistics", "localField": "logistics_id", "foreignField": "_id", "as": "logistics"}},
+{"$match": {
+    "logistics_id": ObjectId("5c384944b8334469e7c0cf86"),
+    $or:[{"logistics.type": 1},{"default": 1}, {"address.province.id": "210000", "address.city.id": "210300"}],
+    },
+},
+{"$unwind": "$address"},
+])
