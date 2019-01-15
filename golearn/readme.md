@@ -1,4 +1,4 @@
-### vscode 编写go
+### vscode 编写go(go 1.11以上)
 
 ##### [使用cow](https://github.com/cyfdecyf/cow)
 
@@ -37,8 +37,8 @@
    }
    ```
 
-4. 安装依赖
-
+4. 安装依赖（go mod 可以设置 [代理需要powershell](https://goproxy.io/)）
+   上一步翻墙成功这里不需要翻墙，不过因为这个代理是局部的可以每次打开终端开启就可以不需要翻墙
    - 在项目目录执行go mod init ，
    - 然后go mod vendor
    - 然后把vendor复制到外面
