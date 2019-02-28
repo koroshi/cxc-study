@@ -1,7 +1,7 @@
 const express = require("express");
 const graphqlHttp = require("express-graphql");
 const {buildSchema} = require('graphql');
-
+const graphql = require("graphql")
 
 let app = express();
 
@@ -231,6 +231,68 @@ let app = express();
 	}));	
 }
 
+//demo7
+{
+	let midScehma = buildSchema(`
+		type Query{
+			ip:String
+		}
+	`);
+	function logginMid (req, res, next) {
+		console.log(`ip:${req.ip}`);
+		next();
+	};
+	let midRoot = {
+		ip:function(args,request){
+			return request.ip
+		}
+	};
+	app.use('/graphqlmid', logginMid, graphqlHttp({
+		schema: midScehma,
+		rootValue: midRoot,
+		graphiql: true,
+	  }));
+}
+
+//demo8
+{
+	let fdb = {
+		a:{
+			id:"a",
+			name:"alice"
+		},
+		b:{
+			id:"b",
+			name:"bob"
+		}
+	};
+	let userType = new graphql.GraphQLObjectType({
+		name:"User",
+		fields:{
+			id:{type:graphql.GraphQLString},
+			name:{type:graphql.GraphQLString}
+		}
+	});
+	let queryType = new graphql.GraphQLObjectType({
+		name:"Query",
+		fields:{
+			user:{
+				type:userType,
+				args:{
+					id:{type:graphql.GraphQLString}
+				},
+				resolve:function(_,{id}){
+					return fdb[id];
+				}
+			}
+		}
+	});
+	let schemaADVANCED = new graphql.GraphQLSchema({query:queryType});
+	app.use('/graphqlad', graphqlHttp({
+		schema: schemaADVANCED,
+		graphiql: true,
+	  }));
+}
 
 app.listen(4000);
 console.log("server is running at port 4000")
