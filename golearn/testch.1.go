@@ -2,7 +2,7 @@
 // goroutines. You can send values into channels from one
 // goroutine and receive those values into another
 // goroutine.
-
+//test
 package main
 
 import (
