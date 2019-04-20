@@ -8,6 +8,9 @@
    listen = http://127.0.0.1:7777
    proxy = socks5://127.0.0.1:1080
    ```
+   $env:HTTPS_PROXY="http://127.0.0.1:1080"
+
+   $env:HTTP_PROXY="http://127.0.0.1:1080"
 
 2. 安装go插件
 
