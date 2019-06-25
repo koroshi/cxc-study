@@ -47,12 +47,6 @@ async function test(){
 
  
 }
-// test();
-
-//结论，
-//如果迭代对象是promise数组，异步迭代则for await of，for...of 里面 await【因为运行时间在函数执行的时候确定】
-//方法二和方法三时间由[3,2,1].map(sleep)这个决定已经三秒了，如果外部同步，里面异步就不一样了
-//如果没有依赖关系的，便利同步数据循环内部需要await异步，看看是否能转换成promise.all或者race来节约时间，不然每个互相等待上一个执行完才开始下一个
 
 
 async function test2(){
@@ -68,9 +62,9 @@ async function test2(){
       
       console.time("timeExample2")
       for await (num of asyncGenerator()) {
-        console.log(num);
+        console.log(num);//1s 1,3s 2, 6s 3
       }
-      console.timeEnd("timeExample2")
+      console.timeEnd("timeExample2") //near 6s
 
     //   console.time("timeExample3")
     //   for  (num of asyncGenerator()) {
@@ -79,7 +73,14 @@ async function test2(){
     //   console.timeEnd("timeExample3")
     // 无法执行
 }
+
+//test all
 // test().then(test2)
+
+//test one
+// test();
+
+//test two
 test2()
 
 //结论，
