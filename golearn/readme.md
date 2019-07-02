@@ -52,4 +52,7 @@
 ```
 学习资料
 https://docs.hacknode.org/gopl-zh/ch5/ch5-06.html
+
+字符串拼接效率
+https://studygolang.com/articles/3427
 ```
