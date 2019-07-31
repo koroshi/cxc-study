@@ -12,3 +12,6 @@ https://www.jianshu.com/p/2b4a3cda0f6f
 
 TODO: JENKINS 
 https://www.kancloud.cn/louis1986/jenkins/481896
+
+TODO: postgres (Find foreign keys referencing a table: postgres)
+https://bowerstudios.com/node/1052
