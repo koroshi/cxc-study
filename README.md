@@ -19,3 +19,7 @@ https://bowerstudios.com/node/1052
 
 TODO: nest.js
 https://docs.nestjs.cn/6/awesome
+
+
+TODO: read the node article
+https://www.bookstack.cn/read/Nodejs-Roadmap/nodejs-test.md
