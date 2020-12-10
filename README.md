@@ -23,3 +23,7 @@ https://docs.nestjs.cn/6/awesome
 
 TODO: read the node article
 https://www.bookstack.cn/read/Nodejs-Roadmap/nodejs-test.md
+
+
+TODO: c languge
+https://www.youtube.com/watch?v=443UNeGrFoM
